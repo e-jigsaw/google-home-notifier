@@ -1,12 +1,19 @@
 {
-  "name": "google-home-notifier",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@jigsaw/google-home-notifier",
+  "version": "0.0.0",
+  "description": "google-home-notifier",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "Google Home"
+  ],
+  "author": "Takaya Kobayashi <y@kbys.tk>",
+  "license": "MIT",
+  "dependencies": {
+    "castv2-client": "^1.2.0",
+    "google-tts-api": "0.0.2",
+    "mdns": "^2.3.4"
+  }
 }
