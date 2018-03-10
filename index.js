@@ -2,11 +2,6 @@ const {Client, DefaultMediaReceiver} = require('castv2-client')
 const mdns = require('mdns')
 const googletts = require('google-tts-api')
 const browser = mdns.createBrowser(mdns.tcp('googlecast'))
-let deviceAddress
-
-exports.ip = ip => {
-  deviceAddress = ip
-}
 
 const onDeviceUp = (host, url) => new Promise((resolve, reject) => {
   const client = new Client()
@@ -30,15 +25,15 @@ const onDeviceUp = (host, url) => new Promise((resolve, reject) => {
   })
 })
 
-const getSpeechUrl = async (text, host, callback) => {
-  const url = await googletts(text, 'ja', 1, 1000, 'ja-JP')
-  const res = await onDeviceUp(host, url)
+const getSpeechUrl = async (ip, message) => {
+  const url = await googletts(message, 'ja', 1, 1000, 'ja-JP')
+  const res = await onDeviceUp(ip, url)
   return res
 }
 
-exports.notify = async (message, callback) => {
+exports.notify = async (ip, message) => {
   try {
-    const res = await getSpeechUrl(message, deviceAddress)
+    const res = await getSpeechUrl(ip, message)
     return res
   } catch (err) {
     console.error(err)
