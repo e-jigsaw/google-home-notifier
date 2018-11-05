@@ -1,6 +1,6 @@
 {
   "name": "@jigsaw/google-home-notifier",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "google-home-notifier",
   "main": "index.js",
   "scripts": {
