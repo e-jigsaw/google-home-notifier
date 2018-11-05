@@ -1,7 +1,5 @@
 const {Client, DefaultMediaReceiver} = require('castv2-client')
-const mdns = require('mdns')
 const googletts = require('google-tts-api')
-const browser = mdns.createBrowser(mdns.tcp('googlecast'))
 
 const onDeviceUp = (host, url) => new Promise((resolve, reject) => {
   const client = new Client()
